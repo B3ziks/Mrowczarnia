@@ -1,0 +1,362 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+.header {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header::before {
+  content: '';
+  background: url('mrowkaBackground.png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: grayscale(40%);
+  opacity: 0.5;
+  z-index: -1; 
+}
+
+.header img {
+  width: 200px; 
+  height: auto;
+  z-index: 1; 
+}
+
+.header .shop-name {
+  color: black;
+  font-size: 4em;
+  margin: 0;
+  z-index: 1; 
+}
+
+/* Add styles for the koszyk (basket) */
+.header .koszyk {
+  width: 150px; 
+  height: auto;
+  z-index: 1;
+}
+ #productDetails {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+  }
+  #productImage {
+    flex: 1;
+    max-width: 50%;
+  }
+  .product-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+
+}
+.product-image-container img {
+    max-width: 300px; /* This ensures the image is never wider than its container */
+    max-height: 300px; /* Adjust the value according to your needs */
+}
+  .product-info {
+    flex: 1;
+    max-width: 50%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+.details-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+  .ratings-comments-container {
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.comments-container {
+  display: flex;
+  width: 100% - 20px;
+  justify-content: space-between;
+}
+
+.left, .right {
+  flex: 1;
+  padding: 10px;
+}
+.comment {
+  background: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; 
+}
+.rating-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+  .star {
+    width: 20px; 
+    margin-right: 5px;
+  }
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: orange; 
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500); 
+  background: linear-gradient(to right, #FFA500, #FF4500); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.button:disabled {
+  background-color: #cccccc;
+  color: #666666; 
+  cursor: not-allowed; 
+  border: 1px solid #999999; 
+}
+
+.back-button {
+  position: fixed;  
+  left: 50%;       
+  bottom: 20px;    
+  transform: translateX(-50%); 
+  padding: 10px 20px;
+  background: orange; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500);
+  background: linear-gradient(to right, #FFA500, #FF4500);  
+  color: white;   
+  text-align: center;
+  text-decoration: none;   
+  border-radius: 5px;       
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  z-index: 1000;             
+}
+
+.back-button:hover {
+  background-color: #0056b3; 
+}
+  .buy-now {
+    background-color: #4CAF50;
+    color: white;
+  }
+.quantity-controls button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #ddd; 
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.quantity-controls button:hover {
+  background-color: #ccc;
+}
+
+
+.quantity-controls input {
+  text-align: center;
+  width: 40px;
+  padding: 5px;
+  margin: 0 5px;
+}  
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; 
+} 
+  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .header img {
+      width: 150px; /* Smaller logo on smaller screens */
+    }
+
+    .header .shop-name {
+      font-size: 2em; /* Smaller font size for shop name */
+    }
+
+    .product-info, .product-image-container {
+      max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .item-list {
+      justify-content: center; /* Center items on smaller screens */
+    }
+
+    .item {
+      width: 100%; /* Full width for items on smaller screens */
+    }
+
+    .details-section, .ratings-comments-container, .comments-container {
+      flex-direction: column; /* Stack vertically on smaller screens */
+    }
+
+    .left, .right {
+      width: 100%; /* Full width for these elements on smaller screens */
+      padding: 5px; /* Reduced padding */
+    }
+
+    .quantity-controls input {
+      width: 50px; /* Adjust width for quantity input */
+    }
+  }
+
+  /* Further adjustments for even smaller screens */
+  @media (max-width: 480px) {
+    .search-bar input[type="text"] {
+      width: 80%; /* Increase width of search bar */
+    }
+
+    .header {
+      flex-direction: column; /* Stack header elements vertically */
+      align-items: center; /* Center align items */
+    }
+
+    .header img, .header .shop-name, .header .koszyk {
+      margin-bottom: 10px; /* Add margin between header items */
+    }
+  }
+     .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .navbar img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+		 /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .header img, .header .koszyk {
+      width: 150px; /* Smaller logo and basket icon on smaller screens */
+    }
+
+    .header .shop-name {
+      font-size: 2em; /* Smaller font size for shop name */
+    }
+
+    .navbar a {
+      padding: 5px; /* Smaller padding for navbar items */
+      font-size: 0.8em; /* Smaller font size for text in navbar */
+    }
+
+    .navbar img {
+      width: 20px; /* Smaller icons in navbar */
+      height: 20px;
+    }
+
+    .item {
+      width: 100%; /* Full width for items on smaller screens */
+    }
+
+    .search-bar input[type="text"] {
+      width: 80%; /* Increase width of search bar */
+    }
+  }
+
+  /* Further adjustments for even smaller screens */
+  @media (max-width: 480px) {
+    .item-list {
+      flex-direction: column; /* Stack items vertically */
+    }
+
+    .item {
+      width: 100%; /* Full width for each item */
+    }
+
+    .navbar {
+      flex-direction: column; /* Stack navbar items vertically */
+    }
+
+    .navbar a {
+      margin: 5px 0; /* Add some margin between navbar items */
+    }
+  }
+
+.comments-container,
+.add-comment-form,
+.comments-header {
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+/* Additional styles to ensure proper layout */
+table {
+  width: 100%; /* Ensure table takes full width */
+  border-collapse: collapse; /* Optional: for better table styling */
+}
+
+th, td {
+  text-align: left; /* Align table headers and cells to the left */
+  padding: 8px; /* Add some padding for table cells */
+}
+
+th {
+  background-color: #f2f2f2; /* Optional: to differentiate header */
+}
+
+/* Add this class to the div containing the "Komentarze" headline */
+.comments-header {
+  margin-bottom: 10px; /* Add some space below the headline */
+}
+
+/* Ensure the form inputs and buttons are full-width on smaller screens */
+@media (max-width: 768px) {
+  .form-group input,
+  .btn {
+    width: 100%;
+    box-sizing: border-box; /* Make sure padding and border are included in the width */
+  }
+}
+
+/* Add this class to the divs wrapping the sections you want to be full-width */
+.full-width-container {
+  width: 100%;
+}
+
+/* Add clearfix to clear floats if you have floating elements */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

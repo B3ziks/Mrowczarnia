@@ -1,0 +1,80 @@
+trigger dla tabeli "produkty" i "produkty_audit" dla dodawania
+
+
+DELIMITER //
+
+CREATE TRIGGER after_product_insert
+AFTER INSERT ON produkty FOR EACH ROW
+BEGIN
+    INSERT INTO produkty_audit (product_id, operation, operation_time)
+    VALUES (NEW.id, 'INSERT', NOW());
+END //
+
+DELIMITER ;
+
+
+-------------
+
+trigger dla tabeli "comments" i "comments_audit" dla dodawania
+
+DELIMITER //
+
+CREATE TRIGGER after_comment_insert
+AFTER INSERT ON comments FOR EACH ROW
+BEGIN
+    INSERT INTO comments_audit (comment_id, action, timestamp)
+    VALUES (NEW.id, 'INSERT', NOW());
+END //
+
+DELIMITER ;
+
+
+---------------
+
+trigger dla tabeli "produkty" i "produkty_audit" dla usuwania
+
+
+DELIMITER $$
+
+CREATE TRIGGER AfterProductDelete
+AFTER DELETE ON produkty FOR EACH ROW
+BEGIN
+    INSERT INTO produkty_audit(product_id, operation, operation_time, operator_id) VALUES (OLD.id, 'DELETE', NOW(), @currentUser); 
+END$$
+
+DELIMITER ;
+
+-------------
+
+trigger dla tabeli "produkty" i "produkty_audit" dla edytowania
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER BeforeProductUpdate
+BEFORE UPDATE ON produkty
+FOR EACH ROW
+BEGIN
+    INSERT INTO produkty_audit(product_id, operation, operation_time)
+    VALUES (OLD.id, 'UPDATE', NOW());
+END$$
+
+DELIMITER ;
+
+-------------
+
+trigger dla tabeli "comments" i "comments_audit" dla usuwania
+
+
+DELIMITER $$
+
+CREATE TRIGGER BeforeCommentDelete
+BEFORE DELETE ON comments
+FOR EACH ROW
+BEGIN
+    INSERT INTO comments_audit (comment_id, deleted_at, deleted_by)
+    VALUES (OLD.id, NOW(), @currentUser); 
+END$$
+
+DELIMITER ;

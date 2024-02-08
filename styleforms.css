@@ -1,0 +1,177 @@
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+	text-align:center;
+  }
+.header {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.header::before {
+  content: '';
+  background: url('mrowkaBackground.png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: grayscale(40%);
+  opacity: 0.5;
+  z-index: -1; 
+}
+
+.header img {
+  width: 200px; 
+  height: auto;
+  z-index: 1; 
+}
+
+.header .shop-name {
+  color: black;
+  font-size: 4em;
+  margin: 0;
+  z-index: 1; 
+}
+        form {
+            margin: auto;
+            max-width: 300px;
+        }
+        input[type="email"], input[type="password"],input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .social-media img {
+            width: 50px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 50px;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+		
+	.button {
+  padding: 20px 30px;
+  margin: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: orange;
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500);
+  background: linear-gradient(to right, #FFA500, #FF4500); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.back-button {
+  position: fixed;  
+  left: 50%;    
+  bottom: 20px;    
+  transform: translateX(-50%); 
+  padding: 10px 20px;
+  background: orange; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500); 
+  background: linear-gradient(to right, #FFA500, #FF4500); 
+  color: white; 
+  text-align: center;
+  text-decoration: none; 
+  border-radius: 5px;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  z-index: 1000;             
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Darker background color on hover */
+}
+
+       .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .navbar img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+@media screen and (max-width: 768px) {
+  .header .shop-name {
+    font-size: 2em; /* Smaller font size for the shop name */
+  }
+
+  .header img {
+    width: 150px; /* Smaller width for the header image */
+  }
+
+  form {
+    width: 90%; /* Increase width of the form on smaller screens */
+  }
+
+  input[type="email"], input[type="password"],input[type="text"] {
+    font-size: 0.9em; /* Smaller font size for inputs */
+  }
+
+  .social-media img {
+    width: 40px; /* Smaller width for social media icons */
+  }
+
+  .footer {
+    margin-top: 20px; /* Less margin on the top for footer */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header .shop-name {
+    font-size: 1.5em; /* Even smaller font size for the shop name */
+  }
+
+  .header img {
+    width: 100px; /* Even smaller width for the header image */
+  }
+
+  form {
+    width: 95%; /* Increase width of the form on even smaller screens */
+  }
+
+  input[type="email"], input[type="password"],input[type="text"] {
+    font-size: 0.8em; /* Even smaller font size for inputs */
+  }
+
+  .social-media img {
+    width: 35px; /* Even smaller width for social media icons */
+  }
+
+  .footer h2 {
+    font-size: 1em; /* Smaller font size for footer heading */
+  }
+}
+ 

@@ -1,0 +1,227 @@
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+.header {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.header::before {
+  content: '';
+  background: url('mrowkaBackground.png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: grayscale(40%);
+  opacity: 0.5;
+  z-index: -1; 
+}
+
+.header img {
+  width: 200px; 
+  height: auto;
+  z-index: 1; 
+}
+
+.header .shop-name {
+  color: black;
+  font-size: 4em;
+  margin: 0;
+  z-index: 1; 
+}
+
+.header .koszyk {
+  width: 150px; 
+  height: auto;
+  z-index: 1;
+}
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .navbar img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+.admin-panel {
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    margin: auto; /* Center the div */
+    text-align: center;
+}
+
+.admin-panel h2 {
+    color: #333;
+}
+  .search-bar {
+    display: flex;
+    justify-content: center; 
+    padding: 20px;
+  }
+  .search-bar input[type="text"] {
+    width: 50%; 
+    max-width: 600px; 
+    padding: 15px; 
+    box-sizing: border-box;
+    margin-top: -20px; 
+    border: 2px solid #ccc; 
+    border-radius: 5px; 
+  }
+  .main-content {
+    padding: 20px;
+  }
+  .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+.item {
+  border: 1px dotted black; 
+  padding: 10px;
+  width: 19%;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 10px;
+  text-decoration:none;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
+
+.item-name {
+  font-weight: bold;
+  font-size: 2em;
+
+}
+
+.tag {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+}
+.black-tag .item-name,
+.black-tag .tag {
+  color: black;
+  border-color: black;
+}
+
+.purple-tag .item-name,
+.purple-tag .tag {
+  color: purple;
+  border-color: purple;
+}
+
+.green-tag .item-name,
+.green-tag .tag {
+  color: green;
+  border-color: green;
+}
+
+.red-tag .item-name,
+.red-tag .tag {
+  color: red;
+  border-color: red;
+}
+
+.orange-tag .item-name,
+.orange-tag .tag {
+  color: orange;
+  border-color: orange;
+}
+
+
+/* Responsive CSS */
+@media screen and (max-width: 768px) {
+  .item-list {
+    justify-content: center;
+  }
+  .item {
+    width: 48%; /* Adjust width for smaller screens */
+  }
+      .header .shop-name {
+      font-size: 2em; /* Smaller font size for shop name */
+    }
+  input[type="email"], input[type="password"] {
+    font-size: 0.9em; /* Smaller font size for inputs */
+  }
+}
+.delete-btn {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    color: white;
+    border: none;
+    text-align: center;
+    line-height: 25px; /* Aligns the 'X' vertically */
+    border-radius: 50%; /* Makes it a circle */
+    cursor: pointer;
+    font-size: 16px; /* Adjust the font size of 'X' as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: orange; 
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500); 
+  background: linear-gradient(to right, #FFA500, #FF4500); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+  .item-list {
+    flex-direction: column;
+  }
+  .item {
+    width: 100%; /* Full width for very small screens */
+  }
+      .header .shop-name {
+      font-size: 1.5em; /* Smaller font size for shop name */
+    }
+  .header img, .header .koszyk {
+    width: 100px; /* Smaller logos for small screens */
+  }
+  .search-bar input[type="text"] {
+    width: 80%; /* Increase width of search bar */
+  }
+ input[type="email"], input[type="password"] {
+    font-size: 0.8em; /* Even smaller font size for inputs */
+  }
+}

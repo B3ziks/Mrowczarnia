@@ -1,0 +1,200 @@
+        body {
+            font-family: Arial, sans-serif;
+   
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            text-align: center;
+            
+        }
+
+        table th,
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #5c6067;
+        }
+
+        p {
+            text-align: right;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+     .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .navbar img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+.header {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
+
+.header::before {
+  content: '';
+  background: url('mrowkaBackground.png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: grayscale(40%);
+  opacity: 0.5;
+  z-index: -1; 
+}
+
+.header img {
+  width: 200px; 
+  height: auto;
+  z-index: 1; 
+}
+
+.header .shop-name {
+  color: black;
+  font-size: 4em;
+  margin: 0;
+  z-index: 1; 
+}
+
+.header .koszyk {
+  width: 150px; 
+  height: auto;
+  z-index: 1;
+}
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px; 
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: orange; 
+  background: -webkit-linear-gradient(to right, #FFA500, #FF4500); 
+  background: linear-gradient(to right, #FFA500, #FF4500); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+		  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .header img, .header .koszyk {
+      width: 150px; /* Smaller logo and basket icon on smaller screens */
+    }
+
+    .header .shop-name {
+      font-size: 2em; /* Smaller font size for shop name */
+    }
+
+    .navbar a {
+      padding: 5px; /* Smaller padding for navbar items */
+      font-size: 0.8em; /* Smaller font size for text in navbar */
+    }
+
+    .navbar img {
+      width: 20px; /* Smaller icons in navbar */
+      height: 20px;
+    }
+
+    .item {
+      width: 100%; /* Full width for items on smaller screens */
+    }
+
+    .search-bar input[type="text"] {
+      width: 80%; /* Increase width of search bar */
+    }
+  }
+
+  /* Further adjustments for even smaller screens */
+  @media (max-width: 480px) {
+    .header .shop-name {
+      font-size: 1.5em; /* Even smaller font size for the shop name */
+    }
+
+    .item-list {
+      flex-direction: column; /* Stack items vertically */
+    }
+
+    .item {
+      width: 100%; /* Full width for each item */
+    }
+
+    .navbar {
+      flex-direction: column; /* Stack navbar items vertically */
+    }
+
+    .navbar a {
+      margin: 5px 0; /* Add some margin between navbar items */
+    }
+  }
