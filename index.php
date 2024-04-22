@@ -6,13 +6,14 @@
 <title>Mrówczarnia - Strona Główna</title>
   <link rel="icon" type="image/x-icon" href="favicon.png">
 <link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 <?php
     define('DB_SERVER', 'localhost');
-    define('DB_USERNAME', 'Admin');
+    define('DB_USERNAME', 'Formutor');
     define('DB_PASSWORD', 'Cr7OHKpuVpkzWaR');
-    define('DB_NAME', 'mrowczarnia');
+    define('DB_NAME', 'formutor');
 
     function sortProducts($products) {
         usort($products, function($a, $b) {
@@ -93,7 +94,7 @@ echo '
 <h5>
 <div class="admin-panel">
     <h2>Admin Panel</h2>
-<form action="add_product.php" method="post" enctype="multipart/form-data">
+<form id="addProductForm" enctype="multipart/form-data">
 <label style="color:#b58adb;" for="name">Nazwa:</label>
 <input type="text" name="name" id="name"><br><br>
 
@@ -158,14 +159,14 @@ echo '
           <?php endif; ?>
           <?= $tagText ?>
                 <!-- Admin delete button -->
-                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["role"] === "admin"): ?>
-                   <form action="delete_product.php" method="post" style="position: absolute; top: 0; right: 0;">
-                        <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-                        <button class="delete-btn"type="submit" onclick="return confirm('Are you sure you want to delete this product?');" title="Delete">X
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                <?php endif; ?>
+<?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && $_SESSION["role"] === "admin"): ?>
+    <form id="deleteProductForm<?= $product['id'] ?>" style="position: absolute; top: 0; right: 0;">
+        <input type="hidden" name="id" value="<?= $product['id'] ?>">
+        <button class="delete-btn" type="button" onclick="deleteProduct(<?= $product['id'] ?>);" title="Delete">X
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+    </form>
+<?php endif; ?>
 
                 </a>
             <?php endforeach; ?>
@@ -175,6 +176,55 @@ echo '
 <script src="index.js"></script>
 
 </script>
+<script>
+$(document).ready(function() {
+    $('#addProductForm').submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        url: 'http://mrówczarnia.cba.pl/product_api_crud.php',  
+        type: 'POST',
+        headers: {
+             'X-API-Key': 'TestApiKey', 
+        },
+        data: formData,
+        contentType: false,  // Necessary for sending files
+        processData: false,  // Necessary for sending files
+        success: function(response) {
+            alert('Product added successfully!');
+                location.reload();
+        },
+        error: function(xhr, status, error) {
+            alert('Failed to add product: ' + xhr.responseText);
+            console.error("Error: " + error);
+        }
+    });
+});
+
+});
+function deleteProduct(productId) {
+    if (confirm('Are you sure you want to delete this product?')) {
+        $.ajax({
+            url: 'http://mrówczarnia.cba.pl/product_api_crud.php?id=' + productId,
+            type: 'DELETE',
+            headers: {
+                'X-API-Key': 'TestApiKey',
+            },
+            success: function(response) {
+                alert('Product deleted successfully!');
+                location.reload();
+            },
+            error: function(xhr, status, error) {
+                alert('Failed to delete product: ' + xhr.responseText);
+                console.error("Error: " + error);
+            }
+        });
+    }
+}
+
+
+</script>
 
 </body>
-</html>
+</html>			
